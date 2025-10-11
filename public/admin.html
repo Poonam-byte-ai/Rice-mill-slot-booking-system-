@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rice Mill Admin Dashboard</title>
+  <link rel="stylesheet" href="/static/admin.css" />
+</head>
+<body>
+  <!-- Login Screen -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-box">
+      <h1>🔐 Admin Login</h1>
+      <input id="username" type="text" placeholder="Username" />
+      <input id="password" type="password" placeholder="Password" />
+      <button onclick="login()">Login</button>
+      <p id="login-error" style="color:red; margin-top: 10px;"></p>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div id="admin-dashboard" style="display: none;">
+    <div class="header">
+      <h1>🌾 Rice Mill Admin Dashboard 🌾</h1>
+      <button onclick="logout()" class="logout-btn">Logout</button>
+    </div>
+
+    <div class="info-banner">
+      <p>⏰ Mill Operating Hours: 9:00 AM - 6:00 PM | ⏱️ Processing Time: 15 minutes per bag</p>
+      <a href="/" target="_blank" class="view-user-btn">👁️ View User Interface</a>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('bookings')">📅 Bookings</button>
+      <button class="tab-btn" onclick="showTab('close-slots')">🚫 Close Slots</button>
+      <button class="tab-btn" onclick="showTab('closed-list')">📋 Closed Slots</button>
+    </div>
+
+    <!-- Bookings Tab -->
+    <div id="bookings-tab" class="tab-content active">
+      <h2>Current Bookings</h2>
+      <div id="bookings-container"></div>
+    </div>
+
+    <!-- Close Slots Tab -->
+    <div id="close-slots-tab" class="tab-content">
+      <h2>Close Time Slots</h2>
+      <div class="close-slot-form">
+        <label for="close-day">Select Day:</label>
+        <select id="close-day">
+          <option value="">-- Select Day --</option>
+          <option value="Mon">Monday</option>
+          <option value="Tue">Tuesday</option>
+          <option value="Wed">Wednesday</option>
+          <option value="Thu">Thursday</option>
+          <option value="Fri">Friday</option>
+          <option value="Sat">Saturday</option>
+          <option value="Sun">Sunday</option>
+        </select>
+
+        <label for="close-start">Start Time:</label>
+        <select id="close-start">
+          <option value="">-- Select Start Time --</option>
+        </select>
+
+        <label for="close-end">End Time:</label>
+        <select id="close-end">
+          <option value="">-- Select End Time --</option>
+        </select>
+
+        <label for="close-reason">Reason (optional):</label>
+        <input id="close-reason" type="text" placeholder="e.g., Maintenance, Holiday" />
+
+        <button onclick="closeSlot()" class="action-btn">Close Slot</button>
+        <p id="close-error" style="color:red; margin-top: 10px;"></p>
+      </div>
+    </div>
+
+    <!-- Closed Slots List Tab -->
+    <div id="closed-list-tab" class="tab-content">
+      <h2>Currently Closed Slots</h2>
+      <div id="closed-slots-container"></div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/static/admin.js"></script>
+</body>
+</html>

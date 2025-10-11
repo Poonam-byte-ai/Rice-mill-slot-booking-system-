@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "express": "^5.1.0",
+    "node-cron": "^4.2.1",
+    "socket.io": "^4.8.1",
+    "sqlite3": "^5.1.7"
+  },
+  "name": "consultancy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Poonam-byte-ai/consultancy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Poonam-byte-ai/consultancy/issues"
+  },
+  "homepage": "https://github.com/Poonam-byte-ai/consultancy#readme"
+}

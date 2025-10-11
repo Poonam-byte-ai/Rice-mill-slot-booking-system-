@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rice Mill Weekly Slot Booking</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <h1>🌾 Rice Mill Weekly Slot Booking 🌾</h1>
+  
+  <div class="info-banner">
+    <p>⏰ Mill Operating Hours: 9:00 AM - 6:00 PM | ⏱️ Processing Time: 15 minutes per bag</p>
+  </div>
+
+  <table id="timetable"></table>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h3 id="modal-title"></h3>
+      <input id="name" type="text" placeholder="Your Name" />
+      <input id="bags" type="number" placeholder="No of Bags" min="1" />
+      <label for="start-time">Select Start Time:</label>
+      <select id="start-time">
+        <option value="">First enter number of bags</option>
+      </select>
+      <button id="submit">Book</button>
+      <button onclick="closeModal()">Cancel</button>
+      <p id="error" style="color:red"></p>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/static/script.js"></script>
+</body>
+</html>
